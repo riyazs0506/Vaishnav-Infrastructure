@@ -1,0 +1,22 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // Must match the Worker name in the Cloudflare dashboard AND the
+  // WORKER_SELF_REFERENCE service below — a mismatch fails deploys (code 10143).
+  "name": "vaishnav",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-07-07",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "services": [
+    {
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "vaishnav"
+    }
+  ],
+  "observability": {
+    "enabled": true
+  }
+}
