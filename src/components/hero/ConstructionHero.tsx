@@ -72,13 +72,13 @@ export function ConstructionHero() {
           introRef.current.style.pointerEvents = o > 0.1 ? "auto" : "none";
         }
         if (skyRef.current) {
-          /* paper → cool morning sky → warm golden-hour as the house completes */
+          /* white → navy-tinted sky deepening as the house completes (brand colors only) */
           const top =
             p < 0.55
-              ? mix("#f1eee6", "#dfe8ed", Math.min(1, p * 1.8))
-              : mix("#dfe8ed", "#d3e0e9", Math.min(1, (p - 0.55) * 2));
-          const mid = mix("#f1eee6", "#f4e2cc", Math.max(0, (p - 0.45) / 0.55));
-          skyRef.current.style.background = `linear-gradient(180deg, ${top} 0%, ${mid} 58%, #f1eee6 100%)`;
+              ? mix("#ffffff", "#e4e7f2", Math.min(1, p * 1.8))
+              : mix("#e4e7f2", "#d4d9ec", Math.min(1, (p - 0.55) * 2));
+          const mid = mix("#ffffff", "#eef0f8", Math.max(0, (p - 0.45) / 0.55));
+          skyRef.current.style.background = `linear-gradient(180deg, ${top} 0%, ${mid} 58%, #ffffff 100%)`;
         }
         if (barRef.current) barRef.current.style.transform = `scaleX(${p})`;
         if (pctRef.current) pctRef.current.textContent = `${Math.round(p * 100)}%`;
@@ -167,7 +167,7 @@ export function ConstructionHero() {
         </div>
 
         {/* Handover CTA */}
-        <div
+        {/* <div
           ref={ctaRef}
           className="pointer-events-none absolute inset-x-0 top-[9%] flex justify-center px-5 opacity-0 md:top-[11%] md:px-8"
         >
@@ -183,7 +183,7 @@ export function ConstructionHero() {
               View the portfolio
             </Link>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

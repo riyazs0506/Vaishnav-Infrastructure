@@ -1,16 +1,18 @@
 @import "tailwindcss";
 
+/* Brand palette per brochure: white + navy #232c57 only.
+   All values below are white, the navy, or tints/shades of the navy. */
 :root {
-  --paper: #f1eee6;
-  --paper-2: #e9e5da;
-  --ink: #16140f;
-  --ink-2: #3c382f;
-  --stone: #877f70;
-  --line: #d4cec0;
-  --terracotta: #b0512b;
-  --dark: #131210;
-  --dark-2: #1c1a16;
-  --dark-line: #2e2b25;
+  --paper: #ffffff;
+  --paper-2: #f3f5fa;
+  --ink: #1a2845;
+  --ink-2: #3a4470;
+  --stone: #7a819f;
+  --line: #dcdfea;
+  --terracotta: #1a2845; /* accent = brand navy */
+  --dark: #1a2845;
+  --dark-2: #2b3566;
+  --dark-line: #3c4574;
 }
 
 @theme inline {
@@ -50,8 +52,36 @@ body {
 }
 
 ::selection {
-  background: var(--terracotta);
+  background: var(--ink);
   color: var(--paper);
+}
+
+/* On navy sections the accent flips to white so it stays visible
+   (accent and section background are both the brand navy). */
+.bg-dark .text-terracotta {
+  color: var(--paper);
+}
+.bg-dark .text-terracotta\/70,
+.bg-dark .text-terracotta\/80,
+.bg-dark .text-terracotta\/60 {
+  color: color-mix(in srgb, var(--paper) 75%, transparent);
+}
+.bg-dark .bg-terracotta {
+  background-color: var(--paper);
+  color: var(--ink);
+}
+.bg-dark .border-terracotta {
+  border-color: var(--paper);
+}
+.bg-dark .hover\:bg-terracotta:hover {
+  background-color: var(--paper);
+  color: var(--ink);
+}
+.bg-dark .hover\:border-terracotta:hover {
+  border-color: var(--paper);
+}
+.bg-dark .hover\:text-terracotta:hover {
+  color: color-mix(in srgb, var(--paper) 70%, transparent);
 }
 
 /* Editorial helpers */

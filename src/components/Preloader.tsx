@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 /* Brand splash shown while the site loads — stays up on slow connections
@@ -32,14 +32,21 @@ export function Preloader() {
   return (
     <div
       aria-hidden
-      className={`fixed inset-0 z-[200] flex flex-col items-center justify-center bg-dark transition-opacity duration-700 ${
+      className={`fixed inset-0 z-[200] flex flex-col items-center justify-center bg-[#102342] transition-opacity duration-700 ${
         fading ? "pointer-events-none opacity-0" : "opacity-100"
       }`}
     >
       {/* mark */}
-      <div className="flex h-16 w-16 rotate-45 items-center justify-center border border-terracotta/70">
-        <span className="font-display -rotate-45 text-3xl font-medium text-paper">V</span>
-      </div>
+{/* Logo */}
+<div className="relative h-20 w-20 md:h-24 md:w-24">
+  <Image
+    src="/images/logo1.jpg"   // Your Vaishnav Infrastructure logo
+    alt="Vaishnav Infrastructure"
+    fill
+    priority
+    className="object-contain"
+  />
+</div>
       <p className="font-display mt-7 text-3xl font-medium tracking-tight text-paper md:text-4xl">
         Vaishnav
       </p>

@@ -33,8 +33,8 @@ export function CustomCursor() {
       const dotScale = (hover ? 0.45 : 1) * (down ? 1.6 : 1);
       dot.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%) scale(${dotScale})`;
       ring.style.transform = `translate(${rx}px, ${ry}px) translate(-50%, -50%) scale(${ringScale})`;
-      ring.style.borderColor = hover ? "var(--terracotta)" : "rgba(22,20,15,0.35)";
-      ring.style.backgroundColor = hover ? "rgba(176,81,43,0.08)" : "transparent";
+      ring.style.borderColor = hover ? "var(--ink)" : "rgba(35,44,87,0.35)";
+      ring.style.backgroundColor = hover ? "rgba(35,44,87,0.08)" : "transparent";
       raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);

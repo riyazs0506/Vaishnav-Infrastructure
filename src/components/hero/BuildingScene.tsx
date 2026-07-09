@@ -130,7 +130,7 @@ function useMaterials() {
     });
 
     const groundTex = makeTexture(512, (ctx, s) => {
-      ctx.fillStyle = "#d9d3c2";
+      ctx.fillStyle = "#e6e8f0";
       ctx.fillRect(0, 0, s, s);
       noise(ctx, s, 3600, 0.14);
     });
@@ -803,7 +803,7 @@ function Site({ p, mats }: P & { mats: Mats }) {
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.02, 0]} material={mats.ground} receiveShadow>
         <planeGeometry args={[240, 240]} />
       </mesh>
-      <gridHelper ref={grid} args={[46, 46, "#b7ae99", "#cdc6b2"]} />
+      <gridHelper ref={grid} args={[46, 46, "#c3c9dd", "#dbdfec"]} />
       <mesh ref={soil} rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.002, 1.5]}>
         <planeGeometry args={[24, 14]} />
         <meshStandardMaterial ref={soilMat} map={mats.soilMap} transparent opacity={0} roughness={1} />
@@ -814,7 +814,7 @@ function Site({ p, mats }: P & { mats: Mats }) {
       </mesh>
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[3.6, 0.006, 7]}>
         <planeGeometry args={[9.5, 7]} />
-        <meshStandardMaterial ref={driveMat} color="#e6e0d1" transparent opacity={0} roughness={0.9} />
+        <meshStandardMaterial ref={driveMat} color="#e9ebf2" transparent opacity={0} roughness={0.9} />
       </mesh>
       {fence.filter((i) => i !== 2 && i !== 3).map((i) => (
         <Temporary key={i} p={p} up={0.03 + i * 0.004} upEnd={0.07 + i * 0.004} down={0.8 + i * 0.004} downEnd={0.85 + i * 0.004} position={[-9.5 + i * 3.2, 0, 6.2]}>
@@ -1090,8 +1090,8 @@ function Cast({ p, mats }: P & { mats: Mats }) {
 
 /* ---------- atmosphere & camera ---------- */
 
-const FOG_START = new THREE.Color("#f1eee6");
-const FOG_WARM = new THREE.Color("#f2e3cf");
+const FOG_START = new THREE.Color("#ffffff");
+const FOG_WARM = new THREE.Color("#e9ecf5");
 function FogTint({ p }: P) {
   useFrame(({ scene }) => {
     if (scene.fog) scene.fog.color.lerpColors(FOG_START, FOG_WARM, seg(p.current, 0.45, 1) * 0.85);
@@ -1160,7 +1160,7 @@ export default function BuildingScene({ progress }: { progress: Ref }) {
         });
       }}
     >
-      <fog attach="fog" args={["#f1eee6", 60, 130]} />
+      <fog attach="fog" args={["#ffffff", 60, 130]} />
       <hemisphereLight args={["#f6f1e6", "#8d8474", 0.55]} />
       <ambientLight intensity={0.25} />
       <directionalLight
