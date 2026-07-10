@@ -46,7 +46,7 @@ export function Footer() {
 
         <div className="mt-16 flex flex-col gap-3 border-t border-dark-line pt-6 md:flex-row md:items-center md:justify-between">
           <p className="label-mono text-paper/40">
-            {SITE.founder} · Selected works 2021 — 2026
+            {SITE.founder} · 
           </p>
           <p className="label-mono text-paper/40">
             © MMXXVI {SITE.name} · Erode · Tamil Nadu
